@@ -1,7 +1,6 @@
 import React from 'react';
 
 // components
-
 import Message from './message'
 
 const MessageList = () => {

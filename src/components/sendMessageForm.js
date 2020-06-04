@@ -7,7 +7,7 @@ const [message, setMessage] = useState('')
 <form className="send-message-form">
         <input
             value={message}
-            placeholder="Type your message"
+            placeholder="Say something nice..."
             type="text" 
         />
     </form>
