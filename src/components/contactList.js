@@ -1,4 +1,6 @@
 import React from 'react';
+import Conversation from './conversation'
+
 
 const DUMMY_DATA = [
     {
@@ -53,14 +55,8 @@ const DUMMY_DATA = [
 const ContactList = () => (
 
 <div className="contact-list">  
-    <h3>Contact list:</h3>
-{DUMMY_DATA.map((item, index)=> <div key={index} style={{ backgroundColor: 'white', marginBottom: '5px'}}>
-    <img src={item.contact.avatar}/>
-    <p>{item.contact.firstName} {item.contact.lastName}</p>
-   
-<div style={{ fontSize: '10px'}}>{ item.lastMessage.sentByMe ?  <b>{`You: `}</b> : <b>{item.contact.firstName}</b> }{item.lastMessage.message}</div>
-<div style={{ fontSize: '10px'}}></div>
-</div>)}
+    <h3>All ({DUMMY_DATA.length})</h3>
+  {DUMMY_DATA.map((item, index)=> <Conversation item={item} index={index}/>)}
 
 </div>
 )
