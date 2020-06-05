@@ -17,13 +17,12 @@ const Home  = props => {
   console.log('tooooken', localStorage.getItem('token'));
 
 const data = props.data
-  console.log('data: ', data)
   return (
     <div className="app">
-      
       <ContactList />
       <MessageList /> 
       <SendMessageForm />
+      <p>{data ? `${data.firstName}` :`Loading...`}</p>
     </div>
   );
 }
