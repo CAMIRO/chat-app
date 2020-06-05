@@ -1,19 +1,12 @@
 import React from 'react';
-import MessageList from './components/messageList';
-import ContactList from './components/contactList';
-import SendMessageForm from './components/sendMessageForm' 
-// components
+// redux
+import { Provider } from 'react-redux';
+import store  from './store'
+// views
+import Home from './views/home'
 
-
-
-const  App = () => {
-  return (
-    <div className="app">
-      <ContactList />
-      <MessageList /> 
-      <SendMessageForm />
-    </div>
-  );
-}
-
-export default App;
+export default () => (
+  <Provider store={store}>
+    <Home />
+  </Provider>
+)

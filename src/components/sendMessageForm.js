@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const SendMessageForm = () => {
 
-const [message, setMessage] = useState('')
+const [message] = useState('')
     return (
 <form className="send-message-form">
         <input
