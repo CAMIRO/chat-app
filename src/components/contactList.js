@@ -56,7 +56,7 @@ const ContactList = () => (
 
 <div className="contact-list">  
     <h3>All ({DUMMY_DATA.length})</h3>
-  {DUMMY_DATA.map((item, index)=> <Conversation item={item} index={index}/>)}
+  {DUMMY_DATA.map((item, index)=> <Conversation key={index} item={item}/>)}
 
 </div>
 )
