@@ -30,7 +30,7 @@ const MessageList = () => {
     return <div className='message-list'>
         {DUMMY_DATA.map((text, index)=> {
             return (
-                <Message text={text} index={index} />
+                <Message key={index} text={text} index={index} />
             )
         })}
         </div>

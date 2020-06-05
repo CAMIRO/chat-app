@@ -1,20 +1,26 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { requestHelloWorld } from '../../actions'
+import { requestApiData } from '../../actions'
 // components
 import MessageList from '../../components/messageList';
 import ContactList from '../../components/contactList';
 import SendMessageForm from '../../components/sendMessageForm'
 
 const Home  = props => {
-
+  const { requestApiData } = props
+  
   useEffect(() => {
-    props.requestHelloWorld();
-  })
+    requestApiData()
+  },[requestApiData])
+
+  console.log('tooooken', localStorage.getItem('token'));
+
+const data = props.data
+  console.log('data: ', data)
   return (
     <div className="app">
-      {props.helloWorld}
+      
       <ContactList />
       <MessageList /> 
       <SendMessageForm />
@@ -22,6 +28,7 @@ const Home  = props => {
   );
 }
 
-const mapStateToProps = state => ({ helloWorld: state.helloWorld });
-const mapDispatchToProps = dispatch => bindActionCreators({requestHelloWorld}, dispatch)
+const mapStateToProps = state => ({ data: state.data });
+const mapDispatchToProps = dispatch => 
+  bindActionCreators({ requestApiData }, dispatch)
 export default connect(mapStateToProps,mapDispatchToProps )(Home);
