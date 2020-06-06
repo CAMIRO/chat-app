@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 import ConversationItem from '../../components/conversationItem'
-
+import { requestConversationApiData } from '../../actions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 const DUMMY_DATA = [
     {
@@ -52,13 +54,26 @@ const DUMMY_DATA = [
         }
       }
   ]
-const ContactList = () => (
+const ContactList = props => {
+  const { requestConversationApiData } = props
 
-<div className="contact-list">  
-    <h3>All ({DUMMY_DATA.length})</h3>
-  {DUMMY_DATA.map((item, index)=> <ConversationItem key={index} item={item}/>)}
+  useEffect(() => {
+    requestConversationApiData()
+  },[requestConversationApiData])
 
-</div>
-)
 
-export default ContactList
+  const data = props.data
+
+  return (
+  <div className="contact-list">  
+      <h3>All ({DUMMY_DATA.length})</h3>
+    {DUMMY_DATA.map((item, index)=> <ConversationItem key={index} item={item}/>)}
+
+  </div>
+  );
+}
+
+const mapStateToProps = state => ({ data: state.data });
+const mapDispatchToProps = dispatch => 
+  bindActionCreators({ requestConversationApiData }, dispatch)
+export default connect(mapStateToProps,mapDispatchToProps )(ContactList);

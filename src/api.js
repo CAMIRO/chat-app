@@ -11,7 +11,7 @@ export const fetchData =  async () => {
 
 export const getConversationsFetch = async () => {
       const token = localStorage.token;
-      console.log(token)
+     
       if (token) {
         try {
           const response = await fetch("https://test.rolo.chat/conversations?page=1&limit=15", {

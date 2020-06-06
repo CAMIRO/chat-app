@@ -1,23 +1,21 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { requestConversationApiData } from '../../actions'
+import { requestApiData } from '../../actions'
 // components
 import MessageList from '../message';
 import Conversation from '../conversation';
 import SendMessageForm from '../../components/sendMessageForm'
 
 const Home  = props => {
-  const { requestConversationApiData } = props
-  console.log(requestConversationApiData)
+  const { requestApiData } = props
   
   useEffect(() => {
-    requestConversationApiData()
-  },[requestConversationApiData])
+    requestApiData()
+  },[requestApiData])
 
 
 const data = props.data
-  console.log(data)
   return (
     <div className="app">
       <Conversation />
@@ -30,5 +28,5 @@ const data = props.data
 
 const mapStateToProps = state => ({ data: state.data });
 const mapDispatchToProps = dispatch => 
-  bindActionCreators({ requestConversationApiData }, dispatch)
+  bindActionCreators({ requestApiData }, dispatch)
 export default connect(mapStateToProps,mapDispatchToProps )(Home);
