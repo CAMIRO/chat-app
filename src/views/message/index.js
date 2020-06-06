@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import Message from './message'
+import MessageItem from '../../components/messageItem'
 const DUMMY_DATA = [
   {
     "id": "79fd8ddd-be8a-4d20-97f4-666772b945ba",
@@ -28,7 +28,7 @@ const MessageList = () => {
     return <div className='message-list'>
         {DUMMY_DATA.map((text, index)=> {
             return (
-                <Message key={index} text={text} index={index} />
+                <MessageItem key={index} text={text} index={index} />
             )
         })}
         </div>

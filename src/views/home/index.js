@@ -1,25 +1,26 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { requestApiData } from '../../actions'
+import { requestConversationApiData } from '../../actions'
 // components
-import MessageList from '../../components/messageList';
-import ContactList from '../../components/contactList';
+import MessageList from '../message';
+import Conversation from '../conversation';
 import SendMessageForm from '../../components/sendMessageForm'
 
 const Home  = props => {
-  const { requestApiData } = props
+  const { requestConversationApiData } = props
+  console.log(requestConversationApiData)
   
   useEffect(() => {
-    requestApiData()
-  },[requestApiData])
+    requestConversationApiData()
+  },[requestConversationApiData])
 
-  console.log('tooooken', localStorage.getItem('token'));
 
 const data = props.data
+  console.log(data)
   return (
     <div className="app">
-      <ContactList />
+      <Conversation />
       <MessageList /> 
       <SendMessageForm />
       <p>{data ? `${data.firstName}` :`Loading...`}</p>
@@ -29,5 +30,5 @@ const data = props.data
 
 const mapStateToProps = state => ({ data: state.data });
 const mapDispatchToProps = dispatch => 
-  bindActionCreators({ requestApiData }, dispatch)
+  bindActionCreators({ requestConversationApiData }, dispatch)
 export default connect(mapStateToProps,mapDispatchToProps )(Home);

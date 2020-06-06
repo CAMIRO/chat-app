@@ -9,10 +9,6 @@ function* getApiData(action) {
   try {
     // do api call
     const data = yield call(fetchData);
-
-    // token 
-    localStorage.setItem('token', data.token)
-   
     yield put(receiveApiData(data));
   } catch (e) {
     console.log(e)

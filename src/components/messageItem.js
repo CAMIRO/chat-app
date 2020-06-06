@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Message = (props) => {
+const MessageItem = (props) => {
     const { text, index } = props
     return (
         <div className="message" key={index} >
@@ -10,4 +10,4 @@ const Message = (props) => {
 
 }
 
-export default Message
+export default MessageItem

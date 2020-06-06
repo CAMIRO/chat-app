@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Conversation = props => {
+const ConversationItem = props => {
 
     const { item } = props
 
@@ -21,4 +21,4 @@ const Conversation = props => {
     );
 };
 
-export default Conversation
+export default ConversationItem
